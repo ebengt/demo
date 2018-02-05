@@ -1,0 +1,3 @@
+javac -d lib src/*.java
+javac -cp lib:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar -d lib test/DB_test.java
+java -cp lib:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore DB_test

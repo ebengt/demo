@@ -1,0 +1,10 @@
+echo build 1
+echo test 1
+echo build 2
+echo test 2
+echo build 3
+echo test 3
+echo build 4
+echo test 4
+echo package 1, 2, 3, 4
+echo test package

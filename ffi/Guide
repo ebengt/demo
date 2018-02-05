@@ -1,0 +1,26 @@
+# At work we had a system with a database, where the interface was Java. Or a script that called Java.
+# Builds where run by Python. Or a script that called Python.
+# Handling these two was an erlang distributer.
+# However, it took many seconds to start Python. To speed things up I changed to Erlang FFI
+# for Python, and then for Java too.
+# Funnily enough the Java FFI is really slow to start on my home computer. So slow that the author
+# had to add two special config values just for me. Otherwise the FFI timed out.
+# See the timing for just one build below.
+# At work we hade 1500 builds, and a much faster Java FFI start.
+
+# To do this you need Erlang, Java and Python2 installed. Also rebar3 for Erlang.
+# Erlang and Java has to match versions. Ie, I have Erlang 19 and Java 1.8. 1.7 did not work with 19.
+# Follow build/Guide, db/Guide, dist/Guide and dist_no_ffi/Guide
+
+# Then time the ffi verison vs no_ffi version for one target.
+rm result.dist_no_ffi.1
+/usr/bin/time dist_no_ffi/_build/default/bin/dist result.dist_no_ffi.1 targets.1
+rm result.dist.1
+/usr/bin/time dist/_build/default/bin/dist result.dist.1 targets.1
+diff result.*.1
+
+# Then time the ffi verison vs no_ffi version for 10 targets.
+rm result.dist_no_ffi.10
+/usr/bin/time dist_no_ffi/_build/default/bin/dist result.dist_no_ffi.10 targets.10
+rm result.dist.10
+/usr/bin/time dist/_build/default/bin/dist result.dist.10 targets.10

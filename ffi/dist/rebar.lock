@@ -1,0 +1,12 @@
+[{<<"edown">>,
+  {git,"git://github.com/uwiger/edown.git",
+       {ref,"754be25f71a04099c83f3ffdff268e70beeb0021"}},
+  1},
+ {<<"erlport">>,
+  {git,"https://github.com/hdima/erlport.git",
+       {ref,"246b7722d62b87b48be66d9a871509a537728962"}},
+  0},
+ {<<"java_erlang">>,
+  {git,"https://github.com/fredlund/JavaErlang.git",
+       {ref,"6f404774bc2be782957ae7f5f940b1cbc8eb0cc1"}},
+  0}].

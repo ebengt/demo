@@ -1,0 +1,4 @@
+REBAR_COLOR=none
+rebar3 compile
+rebar3 eunit
+rebar3 escriptize

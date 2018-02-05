@@ -1,0 +1,22 @@
+#! /bin/sh
+
+DBLIB=`dirname $0`/lib
+
+if test "$1" = free_id ; then
+	shift
+	DB=$1
+	java -cp $DBLIB CLI free_id $DB
+
+elif test "$1" = write ; then
+	shift
+	DB=$1
+	shift
+	RESULT=$1
+	shift
+	java -cp $DBLIB CLI write $DB $RESULT $*
+
+else
+	echo ERROR
+	false
+
+fi

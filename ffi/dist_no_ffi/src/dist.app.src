@@ -1,0 +1,9 @@
+{application, dist,
+ [
+  {description, "FFI Demo"},
+  {vsn, "1"},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]}
+ ]}.
