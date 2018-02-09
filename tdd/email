@@ -1,0 +1,12 @@
+We are trying to change from tdd software config kalle to config gustav.
+When I use the latest version of tdd software like this:
+
+tdd_config:export( kalle ).
+
+After a long while I get a crash:
+
+** exception error: no function clause matching 
+                    tdd_config:'-string/1-lc$^0/1-0-'(#{kalle1 => 1,kalle2 => 2}) (/usr/erlang/lib/tdd/src/tdd_config.erl, line 12)
+     in function  tdd_config:string/1 (/usr/erlang/lib/tdd/src/tdd_config.erl, line 12)
+
+Please fix.

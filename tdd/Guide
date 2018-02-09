@@ -1,0 +1,51 @@
+date (10 minutes, maximise)
+
+- What is TDD (Test Driven Design)?
+	'Test code before source code', yes. But also allowing tests to influence source.
+
+- Trouble Report for existing system
+	Read email
+	Recreate bug # win, rebar3 shell
+
+- Check tests
+	REBAR_COLOR=none
+	rebar3 eunit -m tdd_config
+	Inspect test/tdd_config_tests.erl with only gustav test.
+	test/tdd_init_tests.erl with both gustav and kalle tests.
+
+- New tests, new code
+	Do not add new tdd_config test case like the old one.
+	Running all test would get much slower. Instead
+	%% @deprecated  when is_atom(Name) ->
+	New interface with list or map. New tests.
+	We save lots of time during testing (and running).
+	Reply-to email with the new interface.
+
+- Conclusion
+	Try TDD and love it, when test runs get faster.
+
+
+
+
+
+Cut/paste if pressed for time:
+
+
+
+Tests:
+
+gustav_test() ->
+	Export = tdd_config:export( [{gustav, 1}] ),
+
+kalle_test() ->
+	Export = tdd_config:export( #{kalle1 => 1, kalle2 => 2} ),
+	?assertEqual( Export, "[{kalle1, 1}\n{kalle2, 2}]" ).
+
+
+Code:
+
+%% New interface with map or list of tuples from tdd_init:config/1
+export( Init_config ) when is_map(Init_config) ->
+	string( maps:to_list(Init_config) );
+export( Init_config ) when is_list(Init_config) ->
+	string( Init_config );
